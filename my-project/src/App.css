@@ -1,0 +1,40 @@
+.background{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./assets/login_bg.jpg');
+    background-repeat: repeat;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .login{
+    position: relative;
+    width: 40vw;
+    height: 80vh;
+    background-color: white;
+    font-family: "Poppins", sans-serif;
+    
+  }
+  
+  .login h1{
+    font-weight: 600;
+    font-size: large;
+    font-style: normal;
+  }
+  
+.password a span:hover{
+  text-decoration: underline;
+}
+
+.signup a:hover{
+  text-decoration: underline;
+}
+
+.email-verification h1{
+    font-size: 25px;
+}
+
+.reset h1{
+  font-size: 20px;
+}
