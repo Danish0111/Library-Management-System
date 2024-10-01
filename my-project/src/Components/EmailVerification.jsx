@@ -23,9 +23,9 @@ const EmailVerification = () => {
 
     const onSubmit = async (data) => {
         try {
-            const r = await fetch('http://localhost:3000/', {
+            const r = await fetch('http://localhost:3000/api/lbms/send/otp', { //api/lbms/send/otp
                 method: "POST",
-                body: JSON.stringify(data),
+                body: JSON.stringify({email: data.email}),
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -63,19 +63,19 @@ const EmailVerification = () => {
                         <div className="absolute bg-white bg-opacity-60 z-10 h-[80vh] w-full flex items-center justify-center">
                             <div aria-label="Loading..." role="status" className="flex items-center relative top-24 text-[12px] space-x-2">
                                 <svg className="h-8 w-8 animate-spin stroke-blue-600" viewBox="0 0 256 256">
-                                    <line x1="128" y1="32" x2="128" y2="64" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-                                    <line x1="195.9" y1="60.1" x2="173.3" y2="82.7" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="24"></line>
-                                    <line x1="224" y1="128" x2="192" y2="128" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+                                    <line x1="128" y1="32" x2="128" y2="64" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line>
+                                    <line x1="195.9" y1="60.1" x2="173.3" y2="82.7" strokeLinecap="round" strokeLinejoin="round"
+                                        strokeWidth="24"></line>
+                                    <line x1="224" y1="128" x2="192" y2="128" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
                                     </line>
-                                    <line x1="195.9" y1="195.9" x2="173.3" y2="173.3" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="24"></line>
-                                    <line x1="128" y1="224" x2="128" y2="192" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+                                    <line x1="195.9" y1="195.9" x2="173.3" y2="173.3" strokeLinecap="round" strokeLinejoin="round"
+                                        strokeWidth="24"></line>
+                                    <line x1="128" y1="224" x2="128" y2="192" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
                                     </line>
-                                    <line x1="60.1" y1="195.9" x2="82.7" y2="173.3" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="24"></line>
-                                    <line x1="32" y1="128" x2="64" y2="128" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-                                    <line x1="60.1" y1="60.1" x2="82.7" y2="82.7" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+                                    <line x1="60.1" y1="195.9" x2="82.7" y2="173.3" strokeLinecap="round" strokeLinejoin="round"
+                                        strokeWidth="24"></line>
+                                    <line x1="32" y1="128" x2="64" y2="128" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line>
+                                    <line x1="60.1" y1="60.1" x2="82.7" y2="82.7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
                                     </line>
                                 </svg>
                                 <span className="text-xl font-medium text-blue-600">Loading...</span>
@@ -86,10 +86,10 @@ const EmailVerification = () => {
                         <input disabled={!isValid || isSubmitting} type='submit' className="login_btn mx-28 disabled:bg-gray-400 disabled:cursor-not-allowed text-center p-2 w-[280px] mt-14 bg-blue-500 hover:bg-blue-700 text-white rounded-lg" value="Submit" />
                     </div>
 
-                    <Link to="/" className="backTOLogin  text-blue-500 hover:text-blue-600 flex justify-center items-center gap-1 my-2 text-sm">
+                    <div  className="backTOLogin text-blue-500 hover:text-blue-600 flex justify-center items-center gap-1 my-2 text-sm">
                         <span><img className='w-[20px]' src={arrow} alt="" /></span>
-                        <span className='text-center hover:underline hover:underline-offset-1'>Back to login</span>
-                    </Link>
+                        <span onClick={()=>navigate('/')} className='hover:cursor-pointer text-center hover:underline hover:underline-offset-1'>Back to login</span>
+                    </div>
 
                 </div>
             </form>
